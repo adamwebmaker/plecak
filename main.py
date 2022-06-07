@@ -28,17 +28,17 @@ def knapSackDP(c,weight,val,n):
     return tab[n][c]
 
 
-f = open("dane.txt", "w")
+f = open("dane.txt", "r")
 
-c = 50
-n = 3
+val = []
+weight = []
 
-val = [60, 100, 120]
-weight = [10, 20, 30]
-
-f.write("{}\n{}\n".format(c, n))
-for i in range(n):
-    f.write("{} {}\n".format(val[i], weight[i]))
+c = int(f.readline())
+n = int(f.readline())
+for x in f:
+    x = x.split()
+    val.append(int(x[0]))
+    weight.append(int(x[1]))
 
 print("Brute force:")
 print(knapSackBF(c,weight,val,len(val)))
